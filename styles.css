@@ -1,0 +1,398 @@
+/* LynxQ API website. The brand's navy (#0B0F19) for the header, hero, Performance Lab,
+   Privacy and footer, with the logo's cyan (#00C2FF to #A6E3FF); warm off-white sections
+   between them (#FAF9F5 / #F1EFE8) with a blue accent (#3266A8). The same in every system
+   theme. The screenshots show the app's own themes. System fonts only. */
+
+:root {
+  --navy: #0b0f19;
+  --navy-2: #0f1626;
+  --navy-line: #1b2a44;
+  --on-navy: #e6edf7;
+  --on-navy-2: #c6d0de;
+  --cyan: #00c2ff;
+  --cyan-2: #a6e3ff;
+  --line-on-navy: rgba(166, 227, 255, .28);
+
+  --bg: #faf9f5;
+  --bg-2: #f1efe8;
+  --surface: #ffffff;
+  --border: #e0ddd3;
+  --border-2: #cfcabd;
+  --text: #1f1e1c;
+  --text-2: #33322f;
+  --meta: #4a4944;
+  --accent: #3266a8;
+  --accent-dark: #22508c;
+  --accent-tint: #e9eef6;
+  --accent-ink: #ffffff;
+  --code-bg: #ece9df;
+  --beta: #85560f;
+  --amber-bg: #fdf6e6;
+  --amber-line: #ecd6a6;
+  --green: #a1c181;
+  --yellow: #dec184;
+  --shadow-sm: 0 1px 2px rgba(15, 23, 42, .05);
+  --focus: var(--accent);
+
+  --font: "Segoe UI Variable Text", "Segoe UI", system-ui, -apple-system, Roboto, "Helvetica Neue", Arial, sans-serif;
+  --display: "Segoe UI Variable Display", "Segoe UI", system-ui, -apple-system, Roboto, "Helvetica Neue", Arial, sans-serif;
+  --mono: "Cascadia Mono", "Cascadia Code", Consolas, ui-monospace, monospace;
+  --radius: 14px;
+  color-scheme: light;
+}
+
+/* Base */
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 72px; background: var(--bg); }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 17px/1.65 var(--font);
+  text-rendering: optimizeLegibility;
+  -webkit-text-size-adjust: 100%;
+}
+img { max-width: 100%; height: auto; }
+figure { margin: 0; }
+a { color: var(--accent); text-underline-offset: 3px; }
+a:hover { color: var(--accent-dark); }
+h1, h2, h3 { line-height: 1.15; letter-spacing: -.015em; font-family: var(--display); color: var(--text); }
+:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; border-radius: 6px; }
+code {
+  font-family: var(--mono); font-size: .88em; color: var(--text);
+  background: var(--code-bg); padding: .1em .38em; border-radius: 5px;
+  overflow-wrap: anywhere;
+}
+kbd {
+  display: inline-block; font: 600 12px/1 var(--mono); color: var(--text);
+  padding: 4px 7px; min-width: 28px; text-align: center; border-radius: 7px;
+  background: var(--surface); border: 1px solid var(--border-2); border-bottom-width: 3px;
+}
+.wrap { max-width: 1320px; margin: 0 auto; padding: 0 32px; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.center { text-align: center; }
+/* Line icons (hero promises, workspace facts, privacy list). */
+.promises svg, .facts svg, .privacy-list svg {
+  flex: none; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round;
+}
+
+.skip {
+  position: absolute; left: 12px; top: -60px; z-index: 20;
+  background: var(--cyan); color: var(--navy); font-weight: 700;
+  padding: 10px 16px; border-radius: 8px; text-decoration: none;
+}
+.skip:focus { top: 12px; color: var(--navy); }
+
+/* The navy parts: focus rings in cyan there. */
+.top, .hero, .perf, .dark, footer, .lightbox { --focus: var(--cyan); }
+
+/* Header */
+.top {
+  position: sticky; top: 0; z-index: 10;
+  background: rgba(11, 15, 25, .86);
+  backdrop-filter: saturate(140%) blur(12px);
+  -webkit-backdrop-filter: saturate(140%) blur(12px);
+  border-bottom: 1px solid rgba(166, 227, 255, .10);
+}
+.top-row { display: flex; align-items: center; justify-content: space-between; gap: 12px 24px; min-height: 64px; flex-wrap: wrap; padding-top: 10px; padding-bottom: 10px; }
+.brand { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; color: var(--on-navy-2); text-decoration: none; }
+.brand img { display: block; height: 30px; width: auto; }
+.brand-suffix { font-weight: 600; font-size: 17px; letter-spacing: .06em; }
+nav ul { list-style: none; display: flex; flex-wrap: wrap; align-items: center; gap: 4px 20px; margin: 0; padding: 0; }
+nav a { display: inline-flex; align-items: center; min-height: 44px; padding: 0 6px; color: var(--on-navy-2); text-decoration: none; font-weight: 500; font-size: 15px; }
+nav a:hover { color: #fff; }
+nav .nav-cta { min-height: 38px; padding: 0 16px; border-radius: 999px; font-weight: 700; color: var(--navy); background: var(--cyan); }
+nav .nav-cta:hover { color: var(--navy); background: var(--cyan-2); }
+/* The phone menu button; only phones with JavaScript show it. */
+.menu-btn { display: none; }
+
+/* Hero */
+.hero { position: relative; overflow: hidden; isolation: isolate; padding: 64px 0 28px; background: var(--navy); color: var(--on-navy); }
+.hero-bg { position: absolute; inset: 0; z-index: -1; background: radial-gradient(60% 55% at 78% 30%, rgba(0, 194, 255, .24), transparent 70%); }
+.hero-grid { display: grid; grid-template-columns: minmax(0, .78fr) minmax(0, 1.42fr); gap: 52px; align-items: center; }
+h1 { font-size: clamp(40px, 5.2vw, 66px); margin: 18px 0 20px; font-weight: 800; letter-spacing: -.03em; color: var(--on-navy); }
+.grad { background: linear-gradient(90deg, var(--cyan), var(--cyan-2)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.tagline { margin: -4px 0 14px; max-width: 22em; text-wrap: balance; font-size: 20px; font-weight: 600; letter-spacing: .01em; color: var(--cyan-2); }
+.lead { font-size: 19px; color: var(--on-navy-2); max-width: 52ch; margin: 0 0 22px; }
+.promises { list-style: none; display: flex; flex-wrap: wrap; gap: 10px 22px; padding: 0; margin: 0 0 28px; font-size: 15px; font-weight: 600; }
+.promises li { display: inline-flex; align-items: center; gap: 8px; }
+.promises svg { width: 20px; height: 20px; color: var(--cyan); }
+
+/* "Coming Soon" pills: yellow on navy, amber on the light sections. */
+.pill {
+  display: inline-flex; align-items: center; gap: 8px; margin: 0; padding: 5px 13px; border-radius: 999px;
+  font-size: 14px; font-weight: 700; letter-spacing: .02em;
+  color: var(--beta); background: var(--amber-bg); border: 1px solid var(--amber-line);
+}
+.dot { width: 7px; height: 7px; border-radius: 50%; background: #c98a1b; }
+.hero .pill { color: var(--yellow); background: rgba(222, 193, 132, .10); border-color: rgba(222, 193, 132, .35); }
+.hero .dot { background: var(--yellow); }
+
+/* Buttons */
+.actions { display: flex; flex-wrap: wrap; gap: 12px; }
+.button {
+  display: inline-flex; align-items: center; gap: 8px; min-height: 48px; padding: 12px 22px;
+  border-radius: 10px; font-weight: 700; text-decoration: none;
+  transition: background-color .15s ease, border-color .15s ease, color .15s ease;
+}
+.button.primary { background: var(--accent); color: var(--accent-ink); }
+.button.primary:hover { background: var(--accent-dark); color: var(--accent-ink); }
+/* While the download is unavailable, Take the tour is the hero's main action. */
+.button.ghost { color: var(--cyan); background: rgba(0, 194, 255, .10); border: 1px solid rgba(0, 194, 255, .55); }
+.button.ghost:hover { color: var(--cyan-2); background: rgba(0, 194, 255, .18); border-color: var(--cyan); }
+/* The download, while there's no release: not a link, just its state (site.js). */
+.button.is-soon {
+  flex-direction: column; align-items: center; justify-content: center; gap: 0; line-height: 1.2;
+  cursor: default; background: var(--accent-tint); color: var(--accent-dark); border: 1px dashed #9fb7da;
+}
+.button.is-soon small { font-weight: 500; font-size: 13px; color: var(--meta); }
+.hero .button.is-soon { align-items: flex-start; background: rgba(166, 227, 255, .10); color: var(--on-navy); border-color: rgba(166, 227, 255, .45); }
+.hero .button.is-soon small { color: var(--on-navy-2); }
+
+.protocols { list-style: none; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; padding: 0; margin: 36px 0 0; }
+.protocols li { font: 600 13px/1 var(--mono); padding: 8px 13px; border-radius: 999px; color: var(--on-navy-2); border: 1px solid rgba(166, 227, 255, .22); }
+.protocols .on { color: var(--cyan); background: rgba(0, 194, 255, .10); border-color: rgba(0, 194, 255, .55); }
+
+/* A screenshot framed as Windows 11 frames a window: the app's own title bar is in the
+   image, so only rounded corners, a 1 px border and a shadow are added. */
+.window {
+  display: block; border-radius: 10px; overflow: hidden; background: #2b2f36;
+  border: 1px solid rgba(15, 23, 42, .14);
+  box-shadow: 0 1px 3px rgba(15, 23, 42, .08), 0 20px 50px rgba(15, 23, 42, .16);
+}
+.window img { display: block; width: 100%; height: auto; aspect-ratio: 1984 / 1205; }
+.window.shot { cursor: zoom-in; transition: border-color .15s ease, box-shadow .15s ease; }
+.window.shot:hover { border-color: var(--accent); box-shadow: 0 1px 3px rgba(15, 23, 42, .08), 0 24px 60px rgba(50, 102, 168, .22); }
+.window.shot:focus-visible { outline-offset: 4px; border-radius: 10px; }
+.hero .window, .perf .window, .dark .window { border-color: rgba(255, 255, 255, .12); box-shadow: 0 2px 6px rgba(0, 0, 0, .25), 0 24px 60px rgba(0, 0, 0, .40); }
+.hero .window.shot:hover, .perf .window.shot:hover, .dark .window.shot:hover { border-color: var(--cyan); }
+
+/* Sections: the two off-white tones alternate; Performance Lab and Privacy are navy. */
+section { padding: 64px 0; }
+.band { background: var(--bg-2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.perf, .dark { position: relative; overflow: hidden; isolation: isolate; color: var(--on-navy); }
+.perf { background: var(--navy); border-top: 1px solid var(--navy-line); border-bottom: 1px solid var(--navy-line); }
+.perf-bg { position: absolute; inset: 0; z-index: -1; background: radial-gradient(50% 60% at 85% 20%, rgba(0, 194, 255, .18), transparent 70%); }
+.band.dark { background: var(--navy-2); border-color: var(--navy-line); }
+
+.eyebrow {
+  display: flex; align-items: center; gap: 10px; margin: 0 0 10px;
+  font-size: 14px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--accent);
+}
+h2 { font-size: clamp(30px, 3.6vw, 44px); margin: 0 0 16px; font-weight: 800; max-width: 24ch; text-wrap: balance; }
+.sub { font-size: 18px; color: var(--text-2); max-width: 66ch; margin: 0 0 24px; }
+.tag {
+  font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; padding: 2px 9px; border-radius: 999px;
+  color: var(--beta); background: var(--amber-bg); border: 1px solid var(--amber-line);
+}
+.perf h2, .dark h2 { color: var(--on-navy); }
+.perf .eyebrow, .dark .eyebrow { color: var(--cyan); }
+.perf .sub { color: var(--on-navy-2); }
+.perf .tag { color: var(--yellow); background: rgba(222, 193, 132, .10); border-color: rgba(222, 193, 132, .35); }
+
+/* A section's intro: eyebrow and heading on the left, its description on the right. */
+.section-head { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); column-gap: 64px; align-items: end; margin-bottom: 32px; }
+.section-head > .eyebrow { grid-column: 1; grid-row: 1; }
+.section-head > h2 { grid-column: 1; grid-row: 2; margin: 0; max-width: none; }
+.section-head > .sub { grid-column: 2; grid-row: 2; margin: 0; max-width: 60ch; }
+
+.ticks { padding-left: 1.2em; margin: 0 0 16px; }
+.ticks li { margin: 0 0 9px; color: var(--text-2); }
+.ticks li::marker { color: var(--accent); content: "▸  "; }
+.ticks code, .facts code, .cli-name code { white-space: nowrap; }
+.step {
+  display: inline-grid; place-items: center; width: 22px; height: 22px; border-radius: 7px;
+  font: 700 12px var(--mono); color: var(--accent-ink); background: var(--accent);
+}
+
+/* The four facts of a workspace. */
+.facts { list-style: none; margin: 4px 0 32px; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px 28px; }
+.facts li { display: flex; gap: 12px; align-items: flex-start; color: var(--text-2); font-size: 15px; line-height: 1.5; }
+.facts svg { width: 22px; height: 22px; margin-top: 2px; color: var(--accent); }
+.facts b { display: block; color: var(--text); font-size: 16px; margin-bottom: 2px; }
+
+/* Screenshot captions */
+.feature-shot figcaption, .duo figcaption, .side-shot figcaption, .stage figcaption { margin-top: 14px; color: var(--text-2); font-size: 15px; line-height: 1.55; }
+.feature-shot figcaption, .side-shot figcaption, .stage figcaption { text-align: center; }
+.duo figcaption b { color: var(--text); }
+.shot-note { text-align: center; margin: 18px 0 0; font-size: 15px; color: var(--on-navy-2); }
+.perf .duo figcaption, .dark .side-shot figcaption { color: var(--on-navy-2); }
+.perf .duo figcaption b { color: var(--on-navy); }
+
+/* Two screenshots side by side; text beside a large screenshot. */
+.duo { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; }
+.split-hl { display: grid; grid-template-columns: minmax(0, .72fr) minmax(0, 1.28fr); gap: 48px; align-items: center; }
+.split-hl h2 { margin-bottom: 18px; }
+
+/* A switch over one large screenshot (Environments, Themes). */
+.switch { display: grid; gap: 18px; justify-items: center; }
+.seg { display: inline-flex; flex-wrap: wrap; justify-content: center; gap: 4px; padding: 4px; border-radius: 12px; background: var(--bg-2); border: 1px solid var(--border); }
+.seg-btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-width: 96px; min-height: 44px; padding: 0 18px;
+  border-radius: 9px; text-decoration: none; font-weight: 600; color: var(--text-2);
+}
+.seg-btn:hover { color: var(--text); background: var(--accent-tint); }
+.seg-btn.is-current { background: var(--surface); color: var(--accent-dark); box-shadow: inset 0 0 0 1px var(--accent), var(--shadow-sm); }
+.seg-btn:not(.is-current) .step { background: var(--border-2); color: var(--text); }
+.switch .stage { width: 100%; max-width: 1200px; }
+
+/* Two subjects side by side (Command palette, Themes). Each column shares the rows, so
+   the headings, the controls and the screenshots line up across. */
+.pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 48px; }
+.pair > div { display: grid; grid-row: span 5; grid-template-rows: subgrid; align-content: start; }
+.pair h2 { font-size: clamp(26px, 2.6vw, 34px); margin-bottom: 10px; }
+.pair .sub { font-size: 17px; margin-bottom: 18px; }
+.pair .seg, .pair .keys { justify-self: start; align-self: center; margin: 0 0 18px; }
+.pair .keys { color: var(--text-2); font-size: 15px; }
+.pair figcaption { margin-top: 14px; color: var(--text-2); font-size: 15px; text-align: center; }
+
+/* CLI: the terminal stays a terminal. */
+.cli-grid { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.25fr); gap: 48px; align-items: center; }
+.cli-name {
+  display: inline-flex; flex-wrap: wrap; align-items: center; gap: 6px 8px; margin: 0 0 18px; padding: 8px 14px;
+  border-radius: 10px; background: var(--surface); border: 1px solid var(--border); color: var(--meta); font-size: 15px;
+}
+.cli-name code { font-size: 15px; }
+.terminal {
+  border-radius: 10px; overflow: hidden; background: #0f1217; color: #d6dae0;
+  border: 1px solid #262a31; box-shadow: 0 1px 3px rgba(15, 23, 42, .1), 0 20px 50px rgba(15, 23, 42, .18);
+}
+.terminal-bar { display: flex; align-items: center; gap: 7px; padding: 10px 12px; background: #181b21; border-bottom: 1px solid #262a31; }
+.terminal-bar i { width: 11px; height: 11px; border-radius: 50%; background: #3a3d44; }
+.terminal-bar span { margin-left: 8px; font-size: 12px; color: #9aa1ad; }
+.terminal pre { margin: 0; padding: 18px; font: 14px/1.7 var(--mono); }
+.terminal pre, .terminal pre code { white-space: pre-wrap; overflow-wrap: anywhere; word-break: break-word; }
+.terminal pre code { display: block; background: none; padding: 0; font-size: inherit; color: inherit; }
+.terminal .prompt { color: #4fc3f7; user-select: none; }
+.t-pass { color: var(--green); font-weight: 700; }
+.dim { color: #a7aeb9; }
+
+/* Privacy: a list beside the approval screenshot. */
+.privacy-list { list-style: none; margin: 8px 0 0; padding: 0; display: grid; gap: 18px; }
+.privacy-list li { display: flex; gap: 14px; color: var(--on-navy-2); font-size: 16px; }
+.privacy-list svg { width: 24px; height: 24px; margin-top: 2px; color: var(--cyan); }
+.privacy-list strong { display: block; color: var(--on-navy); font-size: 17px; margin-bottom: 2px; }
+
+/* Status */
+.status-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 40px; align-items: center; }
+.status-grid .sub { margin-bottom: 0; }
+.panel { padding: 24px; border-radius: var(--radius); background: var(--surface); border: 1px solid var(--border); box-shadow: var(--shadow-sm); }
+.panel h3, .cta-box h3 { font-size: 18px; margin: 0 0 12px; }
+
+/* Coming soon */
+.cta-box { text-align: center; max-width: 880px; margin: 0 auto; }
+.cta-box > img { display: block; margin: 0 auto; }
+.cta-box .pill { margin-top: 18px; }
+.cta-box h2 { margin: 14px auto; }
+.cta-box .center-block { margin: 0 auto 24px; }
+.actions.center { justify-content: center; margin: 0; }
+.split { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 28px; text-align: left; }
+
+/* Footer */
+footer { background: var(--navy); color: var(--on-navy-2); padding: 20px 0; }
+.foot-row { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; font-size: 15px; }
+.foot-row p { margin: 0; }
+
+/* Full-size screenshot viewer (site.js): the screenshot as large as fits, on a dark overlay. */
+html.lb-open { overflow: hidden; }
+.lightbox {
+  display: none; flex-direction: column; gap: 8px;
+  width: 100vw; height: 100vh; max-width: 100vw; max-height: 100vh; margin: 0;
+  padding: max(12px, env(safe-area-inset-top)) max(16px, env(safe-area-inset-right))
+           max(16px, env(safe-area-inset-bottom)) max(16px, env(safe-area-inset-left));
+  border: 0; background: rgba(5, 8, 14, .94); color: var(--on-navy);
+}
+.lightbox[open] { display: flex; }
+.lightbox::backdrop { background: rgba(5, 8, 14, .6); }
+.lb-bar { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.lb-count { margin: 0; color: var(--on-navy-2); font-size: 15px; }
+.lb-buttons { display: flex; gap: 8px; }
+.lb-btn {
+  width: 44px; height: 44px; border-radius: 10px; cursor: pointer; font: 600 22px/1 var(--font);
+  color: var(--on-navy); background: rgba(255, 255, 255, .06); border: 1px solid var(--line-on-navy);
+}
+.lb-btn:hover { color: #fff; border-color: var(--cyan); }
+.lb-btn[hidden] { display: none; }
+.lb-close { width: 48px; height: 48px; font-size: 28px; color: var(--navy); background: var(--cyan); border-color: var(--cyan); }
+.lb-close:hover { color: var(--navy); background: var(--cyan-2); border-color: var(--cyan-2); }
+.lb-figure { flex: 1; min-height: 0; margin: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; }
+.lb-img {
+  display: block; max-width: 100%; max-height: calc(100% - 3em); width: auto; height: auto; object-fit: contain;
+  border-radius: 10px; border: 1px solid rgba(255, 255, 255, .12); background: #2b2f36;
+}
+.lb-cap { color: var(--on-navy); font-weight: 600; text-align: center; max-width: 70ch; }
+
+/* Motion: short colour changes on hover and the phone menu's slide; none when reduced motion is asked. */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition: none !important; }
+}
+
+/* Tablet */
+@media (max-width: 1080px) {
+  .hero-grid, .cli-grid { grid-template-columns: 1fr; gap: 36px; }
+  .hero-copy { max-width: 720px; }
+  .section-head { display: block; }
+  .section-head > h2 { margin-bottom: 14px; }
+  .split-hl, .status-grid { grid-template-columns: 1fr; gap: 28px; }
+  .facts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 860px) {
+  .duo { grid-template-columns: 1fr; gap: 32px; }
+  .pair { grid-template-columns: 1fr; row-gap: 48px; }
+  .pair > div { grid-row: auto; grid-template-rows: none; }
+}
+
+/* Phone */
+@media (max-width: 620px) {
+  .wrap { padding: 0 16px; }
+  section { padding: 44px 0; }
+  .hero { padding: 36px 0 24px; }
+  .top-row { flex-wrap: nowrap; gap: 12px; padding-top: 8px; padding-bottom: 8px; }
+  .brand, .brand img { flex: none; }
+  .brand-suffix { display: none; }
+  /* Without JavaScript the sections scroll sideways; with it, a menu button opens them. */
+  nav { min-width: 0; overflow-x: auto; scrollbar-width: none; }
+  nav ul { flex-wrap: nowrap; gap: 12px; white-space: nowrap; padding: 4px 2px; }
+  nav a { font-size: 14px; }
+  /* The menu is a panel that slides in from the right, over a dimmed page. */
+  .js .menu-btn {
+    position: relative; z-index: 2; display: inline-flex; flex-direction: column; justify-content: center; gap: 5px;
+    width: 44px; height: 44px; margin-right: -10px; padding: 0 11px; border: 0; background: none; cursor: pointer;
+  }
+  .menu-btn span { display: block; height: 2px; border-radius: 2px; background: var(--on-navy); transition: transform .2s ease, opacity .2s ease; }
+  .menu-btn[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .menu-btn[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+  .menu-btn[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  .js .top.is-open { -webkit-backdrop-filter: none; backdrop-filter: none; background: var(--navy); }
+  /* Closed, the panel is clipped away rather than moved off-screen, so the page never
+     scrolls sideways. Its huge shadow dims the page while it's open. */
+  .js nav {
+    position: fixed; top: 0; right: 0; bottom: 0; z-index: 1; width: min(82vw, 320px);
+    padding: 72px 20px 24px; overflow-y: auto;
+    background: var(--navy-2); border-left: 1px solid rgba(166, 227, 255, .12);
+    box-shadow: 0 0 0 100vmax rgba(0, 0, 0, 0);
+    clip-path: inset(0 0 0 100%); visibility: hidden;
+    transition: clip-path .25s ease, box-shadow .25s ease, visibility 0s linear .25s;
+  }
+  .js .top.is-open nav {
+    clip-path: inset(0 0 0 -100vmax); visibility: visible;
+    box-shadow: 0 0 0 100vmax rgba(0, 0, 0, .55);
+    transition: clip-path .25s ease, box-shadow .25s ease;
+  }
+  .js nav ul { flex-direction: column; align-items: stretch; gap: 0; padding: 0; white-space: normal; }
+  .js nav li + li { border-top: 1px solid rgba(166, 227, 255, .10); }
+  .js nav a { display: flex; min-height: 50px; padding: 0 4px; font-size: 17px; }
+  .js nav li:last-child { border-top: 0; padding-top: 16px; }
+  .js nav .nav-cta { justify-content: center; min-height: 46px; }
+  html.menu-open { overflow: hidden; }
+  h1 br { display: none; }
+  .lead, .sub { font-size: 17px; }
+  .facts, .split { grid-template-columns: 1fr; }
+  .protocols { margin-top: 30px; justify-content: flex-start; }
+  .terminal pre { font-size: 12.5px; padding: 14px; }
+  .seg { flex-wrap: nowrap; max-width: 100%; }
+  .seg-btn { min-width: 0; padding: 0 10px; gap: 6px; font-size: 15px; }
+  .button.is-soon, .hero .actions .button { width: 100%; }
+  .window { border-radius: 8px; }
+}

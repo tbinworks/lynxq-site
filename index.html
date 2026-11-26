@@ -1,0 +1,407 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LynxQ API: Native speed. Zero baggage.</title>
+  <meta name="description" content="LynxQ API is a fast, keyboard-first native Windows client for REST and SOAP APIs, with a Mock Server, a Performance Lab and a command line for CI. No telemetry, no account. Coming soon: v0.1.0 Alpha.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="LynxQ API">
+  <meta property="og:title" content="LynxQ API: Native speed. Zero baggage.">
+  <meta property="og:description" content="A fast, keyboard-first native Windows API client for REST and SOAP, with a Mock Server, a Performance Lab and a CI command line. Coming soon: v0.1.0 Alpha.">
+  <meta property="og:url" content="https://lynxq.dev/">
+  <meta property="og:image" content="https://lynxq.dev/assets/shots/bank-response.png">
+  <meta property="og:image:alt" content="LynxQ API — A native, local-first API client for Windows.">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://lynxq.dev/">
+  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#0B0F19">
+  <link rel="icon" type="image/svg+xml" href="assets/app-icon.svg">
+  <link rel="icon" href="favicon.ico" sizes="16x16 32x32 48x48">
+  <link rel="stylesheet" href="styles.css?v=7">
+  <script>document.documentElement.classList.add("js");</script>
+  <script src="site.js?v=3" defer></script>
+</head>
+<body>
+  <!-- Icons: simple stroke shapes drawn for this page. -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <defs>
+      <symbol id="i-send" viewBox="0 0 24 24"><path d="M21 3 10 14M21 3l-7 18-4-7-7-4 18-7Z"/></symbol>
+      <symbol id="i-key" viewBox="0 0 24 24"><circle cx="8" cy="15" r="4"/><path d="m11 12 9-9M17 6l3 3M14 9l2 2"/></symbol>
+      <symbol id="i-layers" viewBox="0 0 24 24"><path d="m12 3 9 5-9 5-9-5 9-5Z"/><path d="m3 13 9 5 9-5"/></symbol>
+      <symbol id="i-folder" viewBox="0 0 24 24"><path d="M3 6a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6Z"/><path d="M8 13h8"/></symbol>
+      <symbol id="i-code" viewBox="0 0 24 24"><path d="m8 8-4 4 4 4M16 8l4 4-4 4M14 5l-4 14"/></symbol>
+      <symbol id="i-term" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="m7 9 3 3-3 3M13 15h4"/></symbol>
+      <symbol id="i-server" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="7" rx="2"/><rect x="3" y="13" width="18" height="7" rx="2"/><path d="M7 7.5h.01M7 16.5h.01"/></symbol>
+      <symbol id="i-gauge" viewBox="0 0 24 24"><path d="M4 18a8 8 0 1 1 16 0"/><path d="m12 18 4-6"/></symbol>
+      <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3 4 6v6c0 5 4 8 8 9 4-1 8-4 8-9V6l-8-3Z"/><path d="m9 12 2 2 4-4"/></symbol>
+      <symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></symbol>
+      <symbol id="i-eye-off" viewBox="0 0 24 24"><path d="M3 3l18 18M10.6 6.1A9.8 9.8 0 0 1 12 6c5 0 9 6 9 6a17 17 0 0 1-3 3.5M6.6 6.6C4.4 8.1 3 12 3 12s4 6 9 6c1.6 0 3-.4 4.3-1.1"/></symbol>
+      <symbol id="i-home" viewBox="0 0 24 24"><path d="m3 11 9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1v-9Z"/></symbol>
+      <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+    </defs>
+  </svg>
+
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="top">
+    <div class="wrap top-row">
+      <a class="brand" href="#top" aria-label="LynxQ API, top of page">
+        <img src="assets/wordmark-on-dark.svg" alt="" width="88" height="30">
+        <span class="brand-suffix">API</span>
+      </a>
+      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav id="site-nav" aria-label="Sections">
+        <ul>
+          <li><a href="#environments">Environments</a></li>
+          <li><a href="#testing">Testing</a></li>
+          <li><a href="#mock">Mock Server</a></li>
+          <li><a href="#perf">Performance</a></li>
+          <li><a href="#cli">CLI</a></li>
+          <li><a href="#privacy">Privacy</a></li>
+          <li><a class="nav-cta" href="#download" data-download-nav>Coming soon</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- Hero -->
+    <section class="hero" id="top" aria-labelledby="hero-h">
+      <div class="hero-bg" aria-hidden="true"></div>
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <p class="pill"><span class="dot" aria-hidden="true"></span>Coming Soon — v0.1.0 Alpha</p>
+          <h1 id="hero-h">Native speed. <br><span class="grad">Zero baggage.</span></h1>
+          <p class="tagline">Rust-powered. GPU-accelerated. <br>Built for developers.</p>
+          <p class="lead">
+            From your first API request to complex testing workflows. Send, validate, automate,
+            mock, and measure APIs in one powerful workspace.
+          </p>
+          <ul class="promises" aria-label="Promises">
+            <li><svg aria-hidden="true"><use href="#i-eye-off"/></svg>No telemetry</li>
+            <li><svg aria-hidden="true"><use href="#i-home"/></svg>No account</li>
+            <li><svg aria-hidden="true"><use href="#i-folder"/></svg>Plain files you can diff in Git</li>
+          </ul>
+          <div class="actions">
+            <!-- The download. Until there's a release it only says "Coming soon";
+                 site.js turns it into a "Download for Windows" link once RELEASE_URL is set. -->
+            <span class="button is-soon" data-download>
+              <span>Coming soon</span>
+              <small>Download for Windows</small>
+            </span>
+            <a class="button ghost" href="#showcase">Take the tour <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+        <figure>
+          <a class="window shot" href="assets/shots/bank-response.png" data-lightbox data-caption="Collections, environments and response validation in LynxQ.">
+            <img src="assets/shots/bank-response.png" width="1984" height="1205" alt="LynxQ in Slate theme, displaying a fictional banking API with a JSON response and passing checks.">
+          </a>
+          <figcaption class="sr">Your APIs. One workspace.</figcaption>
+        </figure>
+      </div>
+      <div class="wrap">
+        <ul class="protocols" aria-label="Protocols">
+          <li class="on">REST</li>
+          <li class="on">SOAP 1.1 · 1.2</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- What it does, in one screen -->
+    <section id="showcase" class="band" aria-labelledby="showcase-h">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">One workspace</p>
+          <h2 id="showcase-h">Your entire API workflow. One workspace.</h2>
+          <p class="sub">
+            Requests, collections, environments, scripts, mocks and load tests sit side by side,
+            saved as plain files on your computer. Every screenshot on this page is the real app,
+            working on a fictional banking API with made-up data.
+          </p>
+        </div>
+        <ul class="facts" aria-label="What a workspace holds">
+          <li><svg aria-hidden="true"><use href="#i-folder"/></svg><span><b>Collections and folders</b>Plain files in a folder you choose, easy to review and diff in Git</span></li>
+          <li><svg aria-hidden="true"><use href="#i-key"/></svg><span><b>Auth, set once</b>Basic, Bearer, API key, OAuth2, Digest or AWS Signature V4, inherited by the requests below</span></li>
+          <li><svg aria-hidden="true"><use href="#i-layers"/></svg><span><b>Variables</b><code>{{variables}}</code> per environment, and values extracted from responses</span></li>
+          <li><svg aria-hidden="true"><use href="#i-send"/></svg><span><b>REST and SOAP</b>Any method and body type, and SOAP 1.1 and 1.2 envelopes</span></li>
+        </ul>
+        <figure class="feature-shot">
+          <a class="window shot" href="assets/shots/bank-soap.png" data-lightbox data-caption="SOAP 1.1 request with its XML response.">
+            <img src="assets/shots/bank-soap.png" width="1984" height="1205" loading="lazy" alt="A SOAP account balance request with its envelope and XML response.">
+          </a>
+          <figcaption>REST and SOAP. Together.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- Environments -->
+    <section id="environments" aria-labelledby="env-h">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">Environments</p>
+          <h2 id="env-h">Switch environments with confidence.</h2>
+          <p class="sub">
+            Keep development, test and production values apart, and switch with
+            <kbd>Ctrl</kbd>&nbsp;<kbd>E</kbd>. When a production environment is active, the title
+            bar turns red, Send becomes <b>Send to PROD</b>, and LynxQ asks before anything goes out.
+          </p>
+        </div>
+        <div class="switch" data-gallery>
+          <div class="seg" role="group" aria-label="Environment steps">
+            <a class="seg-btn is-current" aria-current="true" href="assets/shots/bank-env-menu.png" data-caption="Switch environments instantly." data-alt="Environment selector with DEV, UAT and PROD."><span class="step">1</span>Choose</a>
+            <a class="seg-btn" href="assets/shots/bank-env-prod.png" data-caption="Production is unmistakable." data-alt="Production environment with a red title bar and Send to PROD button."><span class="step">2</span>Production</a>
+            <a class="seg-btn" href="assets/shots/bank-env-prod-confirm.png" data-caption="Confirm before sending to production." data-alt="Production confirmation dialog identifying the destination host."><span class="step">3</span>Confirm</a>
+          </div>
+          <figure class="stage">
+            <a class="window shot" href="assets/shots/bank-env-menu.png" data-stage-link data-lightbox>
+              <img data-stage src="assets/shots/bank-env-menu.png" width="1984" height="1205" loading="lazy" alt="Environment selector with DEV, UAT and PROD.">
+            </a>
+            <figcaption data-caption>Switch environments instantly.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testing -->
+    <section id="testing" class="band" aria-labelledby="testing-h">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">Scripts and tests</p>
+          <h2 id="testing-h">Automate requests. Validate every response.</h2>
+          <p class="sub">
+            Add checks and extract values without writing code, or use JavaScript when you need
+            more. Pass values from one response to the next request, then run a whole collection
+            in order and see every result.
+          </p>
+        </div>
+        <div class="duo">
+          <figure>
+            <a class="window shot" href="assets/shots/bank-script.png" data-lightbox data-caption="JavaScript scripting with the native lq API.">
+              <img src="assets/shots/bank-script.png" width="1984" height="1205" loading="lazy" alt="After-response script with assertions, variable extraction and test results.">
+            </a>
+            <figcaption><b>Script. Validate. Extract.</b></figcaption>
+          </figure>
+          <figure>
+            <a class="window shot" href="assets/shots/bank-run-all.png" data-lightbox data-caption="Sequential request execution with variable chaining and assertions.">
+              <img src="assets/shots/bank-run-all.png" width="1984" height="1205" loading="lazy" alt="Four payment requests executed successfully with all checks passed.">
+            </a>
+            <figcaption><b>Run collections. Validate results.</b></figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mock Server -->
+    <section id="mock" aria-labelledby="mock-h">
+      <div class="wrap split-hl">
+        <div>
+          <p class="eyebrow">Mock Server <span class="tag">Beta</span></p>
+          <h2 id="mock-h">Mock an API before it exists.</h2>
+          <ul class="ticks">
+            <li>Routes by method and exact path, each with its status, headers and a JSON, XML or text body.</li>
+            <li>Runs inside LynxQ on <code>127.0.0.1</code>: nothing leaves your computer, and it never starts by itself.</li>
+            <li>Point an environment at it, or save any real response as a mock in one click.</li>
+            <li>Add delays, failures and dropped connections to test how your client copes.</li>
+          </ul>
+        </div>
+        <figure class="side-shot">
+          <a class="window shot" href="assets/shots/bank-mock.png" data-lightbox data-caption="Local Mock Server with configurable routes and responses.">
+            <img src="assets/shots/bank-mock.png" width="1984" height="1205" loading="lazy" alt="Mock Server with 20 routes, custom headers, status codes and response bodies.">
+          </a>
+          <figcaption>Mock your APIs locally.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- Performance Lab -->
+    <section id="perf" class="perf" aria-labelledby="perf-h">
+      <div class="perf-bg" aria-hidden="true"></div>
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">Performance Lab <span class="tag">Beta</span></p>
+          <h2 id="perf-h">From API requests to performance insights.</h2>
+          <p class="sub">
+            Turn any saved request into a load test with virtual users, a duration, ramp-up and a
+            rate limit. LynxQ names every host and the most requests it can send before it starts,
+            then reports throughput, P50, P95 and P99 latency, and errors.
+          </p>
+        </div>
+        <div class="duo">
+          <figure>
+            <a class="window shot" href="assets/shots/bank-perf-confirm.png" data-lightbox data-caption="Review targets, concurrency and request limits before execution.">
+              <img src="assets/shots/bank-perf-confirm.png" width="1984" height="1205" loading="lazy" alt="Load test confirmation showing the target host, environment and traffic limits.">
+            </a>
+            <figcaption><b>Know your load before you send it.</b></figcaption>
+          </figure>
+          <figure>
+            <a class="window shot" href="assets/shots/bank-perf-results.png" data-lightbox data-caption="Throughput, latency percentiles and error rates. Illustrative local test results.">
+              <img src="assets/shots/bank-perf-results.png" width="1984" height="1205" loading="lazy" alt="Completed Performance Lab run with throughput and latency charts.">
+            </a>
+            <figcaption><b>Measure what matters.</b></figcaption>
+          </figure>
+        </div>
+        <p class="shot-note">Figures from one run against a local mock on one computer: a demonstration, not a benchmark.</p>
+      </div>
+    </section>
+
+    <!-- Command palette and Themes, side by side -->
+    <section id="themes" aria-label="Command palette and themes">
+      <div class="wrap pair">
+        <div>
+          <p class="eyebrow">Command palette</p>
+          <h2>The keyboard at your fingertips.</h2>
+          <p class="sub">Search anything from the title bar: commands, environments, saved requests, history and tabs, a few letters away.</p>
+          <p class="keys"><kbd>Ctrl</kbd>&nbsp;<kbd>K</kbd> from anywhere in the app</p>
+          <figure>
+            <a class="window shot" href="assets/shots/bank-palette.png" data-lightbox data-caption="Fuzzy search across commands, requests, environments, tabs and history.">
+              <img src="assets/shots/bank-palette.png" width="1984" height="1205" loading="lazy" alt="Command palette displaying available actions and keyboard shortcuts.">
+            </a>
+            <figcaption>Find anything. Execute instantly.</figcaption>
+          </figure>
+        </div>
+        <div data-gallery>
+          <p class="eyebrow">Themes</p>
+          <h2>Slate, Dark or Light.</h2>
+          <p class="sub">Three themes with the same layout, so nothing moves when you switch.</p>
+          <div class="seg" role="group" aria-label="Theme">
+            <a class="seg-btn is-current" aria-current="true" href="assets/shots/bank-response.png" data-caption="Slate — Default" data-alt="Blue-grey surfaces with blue accents.">Slate</a>
+            <a class="seg-btn" href="assets/shots/bank-theme-dark.png" data-caption="Dark" data-alt="Near-black surfaces with blue accents.">Dark</a>
+            <a class="seg-btn" href="assets/shots/bank-theme-light.png" data-caption="Light" data-alt="Warm off-white surfaces with dark text.">Light</a>
+          </div>
+          <figure>
+            <a class="window shot" href="assets/shots/bank-response.png" data-stage-link data-lightbox>
+              <img data-stage src="assets/shots/bank-response.png" width="1984" height="1205" loading="lazy" alt="Blue-grey surfaces with blue accents.">
+            </a>
+            <figcaption data-caption>Slate — Default</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- CLI -->
+    <section id="cli" class="band" aria-labelledby="cli-h">
+      <div class="wrap cli-grid">
+        <div>
+          <p class="eyebrow">On the command line</p>
+          <h2 id="cli-h">The same engine, in your pipeline.</h2>
+          <p class="cli-name"><span>App</span> <code>lynxq-api.exe</code> <span aria-hidden="true">·</span> <span>Command line</span> <code>lynxq.exe</code></p>
+          <ul class="ticks">
+            <li>Runs a workspace's collections read-only, with no window and no account.</li>
+            <li>Secrets come from environment variables, never from the command line.</li>
+            <li>Credentials go only to an origin you name with <code>--allow-origin</code>; PROD needs <code>--allow-prod</code>.</li>
+            <li>Writes JUnit and JSON reports. Exit codes tell CI what happened.</li>
+          </ul>
+        </div>
+        <div class="terminal" role="figure" aria-labelledby="term-cap">
+          <div class="terminal-bar" aria-hidden="true"><i></i><i></i><i></i><span>PowerShell · demo-bank</span></div>
+<pre tabindex="0"><code><span class="prompt" aria-hidden="true">PS&gt; </span>lynxq run Accounts -e DEV --secret accessToken=env:DEMO_BANK_TOKEN
+lynxq: Origin approval required: http://127.0.0.1:4000. Accounts/List accounts would send credentials there. Nothing was sent. If you trust it, pass --allow-origin http://127.0.0.1:4000.
+<span class="prompt" aria-hidden="true">PS&gt; </span>$LASTEXITCODE
+2
+
+<span class="prompt" aria-hidden="true">PS&gt; </span>lynxq run Accounts -e DEV --secret accessToken=env:DEMO_BANK_TOKEN `
+    --allow-origin http://127.0.0.1:4000 -r junit -o accounts.xml
+<span class="dim">lynxq 0.1.0-alpha.1 · run Accounts · environment DEV · DEV</span>
+  <span class="t-pass">PASS</span>  Accounts/List accounts                   200      2 ms
+  <span class="t-pass">PASS</span>  Accounts/Get account                     200      0 ms
+  <span class="t-pass">PASS</span>  Accounts/Get balances                    200      0 ms
+3 requests: 3 passed, 0 failed · 8 checks, 0 failed · 0.0 s
+
+<span class="prompt" aria-hidden="true">PS&gt; </span>lynxq run Accounts -e PROD --secret accessToken=env:DEMO_BANK_TOKEN `
+    --allow-origin https://api.demobank.example
+lynxq: PROD is a PROD environment. Pass --allow-prod to run against it.</code></pre>
+          <p id="term-cap" class="sr">Real runs of lynxq 0.1.0-alpha.1 in PowerShell, in the demo bank workspace, against LynxQ&#39;s Mock Server on this computer. First, without --allow-origin: refused before anything is sent, exit code 2. Then with --allow-origin and a JUnit report: three requests passed, 8 checks. Last, the PROD environment without --allow-prod: refused.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Privacy and security -->
+    <section id="privacy" class="band dark" aria-labelledby="privacy-h">
+      <div class="wrap split-hl">
+        <div>
+          <p class="eyebrow">Privacy and security</p>
+          <h2 id="privacy-h">Only the requests you send.</h2>
+          <ul class="privacy-list">
+            <li><svg aria-hidden="true"><use href="#i-eye-off"/></svg><span><strong>No telemetry, no account.</strong> The app makes no network calls of its own: only your requests and the token requests they need.</span></li>
+            <li><svg aria-hidden="true"><use href="#i-shield"/></svg><span><strong>Credentials go only where you said.</strong> A destination that came with a workspace, an import or a clone is never trusted by itself: LynxQ asks before it sends a credential there.</span></li>
+            <li><svg aria-hidden="true"><use href="#i-lock"/></svg><span><strong>Secrets stay out of your files.</strong> They go to Windows Credential Manager, never into workspace files or History.</span></li>
+            <li><svg aria-hidden="true"><use href="#i-code"/></svg><span><strong>Scripts need your OK.</strong> They're off in every workspace until you trust it, and new or imported scripts wait for review.</span></li>
+          </ul>
+        </div>
+        <figure class="side-shot">
+          <a class="window shot" href="assets/shots/bank-approve-origin.png" data-lightbox data-caption="Explicit approval before sending credentials to an untrusted origin.">
+            <img src="assets/shots/bank-approve-origin.png" width="1984" height="1205" loading="lazy" alt="Credential destination approval dialog with Cancel, Allow once and Remember options.">
+          </a>
+          <figcaption>Your credentials. Your approval.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- Status -->
+    <section id="status" aria-labelledby="status-h">
+      <div class="wrap status-grid">
+        <div>
+          <p class="eyebrow">Status: alpha</p>
+          <h2 id="status-h">Early, and honest about it.</h2>
+          <p class="sub">The first alpha is tested and works, but has rough edges. Mock Server and Performance Lab are marked Beta.</p>
+        </div>
+        <div class="panel">
+          <h3>Not built yet</h3>
+          <ul class="ticks">
+            <li>Server-Sent Events, WebSocket and gRPC</li>
+            <li>OAuth2 Authorization Code (PKCE) and NTLM auth</li>
+            <li>Digest auth with Send &amp; Download</li>
+            <li>Command line: running scripts (<code>--allow-scripts</code>), <code>mock</code>, <code>perf</code> and <code>doctor</code></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Coming soon -->
+    <section id="download" class="band" aria-labelledby="download-h">
+      <div class="wrap">
+        <div class="cta-box">
+          <img src="assets/app-icon.svg" alt="" width="88" height="88">
+          <p class="pill"><span class="dot" aria-hidden="true"></span>Coming Soon — v0.1.0 Alpha</p>
+          <h2 id="download-h">LynxQ API isn't released yet.</h2>
+          <p class="sub center-block">The first alpha for Windows is being prepared. When it's published, the download will be here.</p>
+          <p class="actions center">
+            <span class="button is-soon" data-download>
+              <span>Coming soon</span>
+              <small>Download for Windows</small>
+            </span>
+          </p>
+          <div class="split">
+            <div>
+              <h3>System requirements</h3>
+              <ul class="ticks">
+                <li>Windows 11, x64: where it's built and tested</li>
+                <li>Windows 10: not verified yet</li>
+                <li>Planned as a ZIP you unzip and run: no installer, no runtime to add, no administrator rights</li>
+              </ul>
+            </div>
+            <div>
+              <h3>Before you run it</h3>
+              <ul class="ticks">
+                <!-- Drop this item if release builds get code-signed. -->
+                <li>Builds aren't code-signed yet, so Windows SmartScreen may warn the first time you start <code>lynxq-api.exe</code></li>
+                <li>Alpha software: keep backups of anything important</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap foot-row">
+      <img src="assets/wordmark-on-dark.svg" alt="LynxQ" width="70" height="24">
+      <p>© 2026 tbinworks. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>
