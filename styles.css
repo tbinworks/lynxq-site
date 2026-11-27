@@ -591,3 +591,34 @@ section { padding: 36px 0; }
   .seg { gap: 2px; padding: 3px; }
   .seg-btn { padding: 0 7px; gap: 4px; font-size: 14px; }
 }
+
+/* ======================================================================== PREVIEW: responsive
+ * The compact rules above size the desktop layout. Below the desktop widths, every two-column
+ * part becomes one column again, text first, and screenshots take the full content width.
+ */
+@media (max-width: 1080px) {
+  /* Mock Server, Privacy and security: text, then the screenshot. */
+  .split-hl { grid-template-columns: 1fr; gap: 24px; }
+  .side-shot { max-width: none; justify-self: stretch; }
+}
+@media (max-width: 860px) {
+  /* Scripts and tests, Performance Lab, Command palette and Themes. */
+  .duo { max-width: none; }
+  .pair figure { max-width: none; }
+}
+@media (max-width: 620px) {
+  /* A slimmer header. */
+  .top-row { min-height: 56px; padding-top: 4px; padding-bottom: 4px; }
+  .brand img { height: 26px; }
+  /* Headings and text sized for a phone. */
+  h1 { font-size: clamp(34px, 10.5vw, 42px); margin: 14px 0 14px; }
+  h2 { font-size: clamp(24px, 7.2vw, 30px); margin-bottom: 10px; }
+  .pair h2 { font-size: clamp(22px, 6.6vw, 28px); }
+  .tagline { font-size: 18px; }
+  .lead, .sub, .pair .sub { font-size: 16px; }
+  .section-head > h2 { margin-bottom: 10px; }
+  .facts, .split { gap: 14px; }
+  .privacy-list { gap: 16px; }
+  .duo, .pair { row-gap: 28px; }
+  .split-hl { gap: 20px; }
+}
