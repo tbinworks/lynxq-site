@@ -396,3 +396,198 @@ html.lb-open { overflow: hidden; }
   .button.is-soon, .hero .actions .button { width: 100%; }
   .window { border-radius: 8px; }
 }
+
+/* ======================================================================== PREVIEW: LynxQ Slate
+ * The navy parts (header, hero, Performance Lab, Privacy, footer) in the app's LynxQ Slate theme (crates/app/src/ui/tokens.rs, One Dark):
+ *   sections behind screenshots #1B1D21 / #1E2025 (darker than the app, so its Slate screenshots stand out), editor #282C33, panel #2F343E, raised #333944,
+ *   border #363C46, text #DCE0E5 / #B2B8C4 / #A3A9B5, accent #74ADE8.
+ * The light sections are as before.
+ * Preview copy only: the real website (site/) is unchanged.
+ */
+:root {
+  --navy: #1b1d21;
+  --navy-2: #1e2025;
+  --navy-line: #2c3038;
+  --on-navy: #dce0e5;
+  --on-navy-2: #b2b8c4;
+  --cyan: #74ade8;
+  --cyan-2: #a9cdf2;
+  --line-on-navy: rgba(116, 173, 232, .28);
+
+}
+
+/* Header and hero: the darkest layer, like the app's title bar. */
+/* Solid, as the documentation header: no translucency or blur. */
+.top { background: #1b1d21; border-bottom-color: #2c3038; backdrop-filter: none; -webkit-backdrop-filter: none; }
+nav a:hover { color: #ffffff; }
+.hero-bg { background: radial-gradient(60% 55% at 78% 30%, rgba(116, 173, 232, .12), transparent 70%); }
+.perf-bg { background: radial-gradient(50% 60% at 85% 20%, rgba(116, 173, 232, .10), transparent 70%); }
+
+/* Buttons and pills in the accent instead of cyan. */
+.button.ghost { color: var(--cyan); background: rgba(116, 173, 232, .10); border-color: rgba(116, 173, 232, .50); }
+.button.ghost:hover { color: var(--cyan-2); background: rgba(116, 173, 232, .18); border-color: var(--cyan); }
+.hero .button.is-soon { background: rgba(116, 173, 232, .08); border-color: rgba(116, 173, 232, .40); }
+.protocols li { border-color: rgba(116, 173, 232, .22); }
+.protocols .on { color: var(--cyan); background: rgba(116, 173, 232, .10); border-color: rgba(116, 173, 232, .50); }
+nav .nav-cta { color: #1e1f22; }
+nav .nav-cta:hover { color: #1e1f22; }
+
+/* The terminal sits on Slate's surfaces. */
+.terminal { background: #21252b; border-color: #363c46; color: #dce0e5; }
+.terminal-bar { background: #2f343e; border-bottom-color: #363c46; }
+.terminal .prompt { color: #74ade8; }
+
+/* Lightbox and the phone menu. */
+.lightbox { background: rgba(33, 37, 43, .96); }
+.lightbox::backdrop { background: rgba(20, 22, 26, .6); }
+.lb-btn:hover { border-color: var(--cyan); }
+@media (max-width: 620px) {
+  .js nav li + li { border-top-color: rgba(116, 173, 232, .12); }
+  .js nav { border-left-color: #2c3038; }
+}
+
+
+
+/* ======================================================================== PREVIEW: compact
+ * Screenshot sizing and vertical rhythm. The hero, colours and typography are unchanged.
+ */
+
+/* --- Vertical spacing: tighter between headings, text and screenshots. */
+section { padding: 48px 0; }
+.section-head { margin-bottom: 22px; column-gap: 56px; }
+h2 { margin-bottom: 12px; }
+.sub { margin-bottom: 16px; }
+.facts { margin: 0 0 22px; }
+.feature-shot figcaption, .duo figcaption, .side-shot figcaption, .stage figcaption, .pair figcaption { margin-top: 10px; }
+.switch { gap: 12px; }
+.shot-note { margin-top: 12px; }
+.ticks li { margin-bottom: 7px; }
+.privacy-list { gap: 14px; }
+.cta-box .pill { margin-top: 12px; }
+.cta-box h2 { margin: 10px auto; }
+.cta-box .center-block { margin-bottom: 18px; }
+.split { margin-top: 20px; }
+.pair .seg, .pair .keys { margin-bottom: 14px; }
+.pair .sub { margin-bottom: 12px; }
+
+/* --- Full-application screenshots: at most about 960 px wide, centred. */
+.feature-shot { max-width: 960px; margin-inline: auto; }
+.switch .stage { max-width: 960px; }
+
+/* Side-by-side workflows (Scripting / Run all, Performance Lab): kept as pairs, a little
+   narrower so each image stays readable without dominating. */
+.duo { max-width: 1140px; margin-inline: auto; gap: 24px; }
+
+/* Text beside one screenshot (Mock Server, Privacy): the screenshot takes less room. */
+.split-hl { grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: 44px; }
+.side-shot { max-width: 680px; justify-self: end; width: 100%; }
+
+/* Command palette and Themes: smaller previews, aligned under their text. */
+.pair figure { max-width: 540px; width: 100%; }
+
+/* --- Focused crops of existing screenshots. The link still opens the full image. */
+.window.crop { position: relative; }
+.window.crop img {
+  position: absolute; top: 0; left: 0; max-width: none; height: auto; aspect-ratio: 1984 / 1205;
+}
+/* The command palette and the title-bar search (source x 520–1560, y 0–650). */
+.window.crop-palette { aspect-ratio: 1040 / 650; }
+.window.crop-palette img { width: 190.77%; left: -50%; top: 0; }
+/* The credential destination dialog with its context (source x 470–1510, y 330–970). */
+.window.crop-origin { aspect-ratio: 1040 / 640; }
+.window.crop-origin img { width: 190.77%; left: -45.19%; top: -51.56%; }
+/* Environments: the title bar, menu and dialogs sit in the top two-thirds of every step
+   (source y 0–800); the empty lower editor is left out. */
+.window.crop-top img { aspect-ratio: 1984 / 800; object-fit: cover; object-position: top; }
+
+/* --- Smaller screens. */
+@media (max-width: 1080px) {
+  .side-shot { max-width: none; justify-self: stretch; }
+}
+@media (max-width: 860px) {
+  section { padding: 40px 0; }
+  .pair figure { max-width: none; }
+}
+@media (max-width: 620px) {
+  section { padding: 32px 0; }
+  .section-head { margin-bottom: 16px; }
+}
+
+/* --- Second pass: a little tighter still. */
+section { padding: 40px 0; }
+.feature-shot { max-width: 880px; }
+.switch .stage { max-width: 900px; }
+.duo { max-width: 1040px; }
+.side-shot { max-width: 600px; }
+.pair figure { max-width: 470px; }
+.terminal pre { padding: 14px 16px; font-size: 13px; line-height: 1.6; }
+.cta-box > img { width: 64px; height: 64px; }
+.facts { gap: 10px 24px; }
+@media (max-width: 860px) {
+  section { padding: 36px 0; }
+}
+@media (max-width: 620px) {
+  section { padding: 30px 0; }
+}
+section { padding: 36px 0; }
+@media (max-width: 860px) { section { padding: 32px 0; } }
+@media (max-width: 620px) { section { padding: 28px 0; } }
+
+/* ======================================================================== PREVIEW: navigation
+ * Eight links: the phone menu (the same button and panel) takes over up to 900px, so the
+ * header stays one row on tablets; between 901 and 1100px the links sit a little closer.
+ */
+@media (max-width: 1100px) and (min-width: 901px) {
+  nav ul { gap: 4px 10px; }
+  nav a { padding: 0 4px; font-size: 14px; }
+}
+@media (max-width: 900px) {
+  .top-row { flex-wrap: nowrap; gap: 12px; padding-top: 8px; padding-bottom: 8px; }
+  .brand, .brand img { flex: none; }
+  .brand-suffix { display: none; }
+  /* Without JavaScript the sections scroll sideways; with it, a menu button opens them. */
+  nav { min-width: 0; overflow-x: auto; scrollbar-width: none; }
+  nav ul { flex-wrap: nowrap; gap: 12px; white-space: nowrap; padding: 4px 2px; }
+  nav a { font-size: 14px; }
+  /* The menu is a panel that slides in from the right, over a dimmed page. */
+  .js .menu-btn {
+    position: relative; z-index: 2; display: inline-flex; flex-direction: column; justify-content: center; gap: 5px;
+    width: 44px; height: 44px; margin-right: -10px; padding: 0 11px; border: 0; background: none; cursor: pointer;
+  }
+  .menu-btn span { display: block; height: 2px; border-radius: 2px; background: var(--on-navy); transition: transform .2s ease, opacity .2s ease; }
+  .menu-btn[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .menu-btn[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+  .menu-btn[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  .js .top.is-open { -webkit-backdrop-filter: none; backdrop-filter: none; background: var(--navy); }
+  /* Closed, the panel is clipped away rather than moved off-screen, so the page never
+     scrolls sideways. Its huge shadow dims the page while it's open. */
+  .js nav {
+    position: fixed; top: 0; right: 0; bottom: 0; z-index: 1; width: min(82vw, 320px);
+    padding: 72px 20px 24px; overflow-y: auto;
+    background: var(--navy-2); border-left: 1px solid rgba(166, 227, 255, .12);
+    box-shadow: 0 0 0 100vmax rgba(0, 0, 0, 0);
+    clip-path: inset(0 0 0 100%); visibility: hidden;
+    transition: clip-path .25s ease, box-shadow .25s ease, visibility 0s linear .25s;
+  }
+  .js .top.is-open nav {
+    clip-path: inset(0 0 0 -100vmax); visibility: visible;
+    box-shadow: 0 0 0 100vmax rgba(0, 0, 0, .55);
+    transition: clip-path .25s ease, box-shadow .25s ease;
+  }
+  .js nav ul { flex-direction: column; align-items: stretch; gap: 0; padding: 0; white-space: normal; }
+  .js nav li + li { border-top: 1px solid rgba(166, 227, 255, .10); }
+  .js nav a { display: flex; min-height: 50px; padding: 0 4px; font-size: 17px; }
+  .js nav li:last-child { border-top: 0; padding-top: 16px; }
+  .js nav .nav-cta { justify-content: center; min-height: 46px; }
+  html.menu-open { overflow: hidden; }
+  .js nav li + li { border-top-color: rgba(116, 173, 232, .12); }
+  .js nav { border-left-color: #2c3038; }
+}
+@media (min-width: 621px) and (max-width: 900px) {
+  .brand-suffix { display: inline; }
+}
+@media (max-width: 380px) {
+  /* Narrow phones: the step buttons stay within the screen. */
+  .seg { gap: 2px; padding: 3px; }
+  .seg-btn { padding: 0 7px; gap: 4px; font-size: 14px; }
+}

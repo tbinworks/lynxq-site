@@ -39,7 +39,7 @@
     document.addEventListener("keydown", function (ev) {
       if (ev.key === "Escape" && header.classList.contains("is-open")) { setMenu(false); menuBtn.focus(); }
     });
-    window.matchMedia("(max-width: 620px)").addEventListener("change", function (mq) { if (!mq.matches) setMenu(false); });
+    window.matchMedia("(max-width: 900px)").addEventListener("change", function (mq) { if (!mq.matches) setMenu(false); });
   }
 
   // Switches (Environments, Themes): each button shows its screenshot on the stage.

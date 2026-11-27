@@ -15,12 +15,12 @@
   <meta name="twitter:card" content="summary_large_image">
   <link rel="canonical" href="https://lynxq.dev/">
   <meta name="color-scheme" content="light">
-  <meta name="theme-color" content="#0B0F19">
+  <meta name="theme-color" content="#1B1D21">
   <link rel="icon" type="image/svg+xml" href="assets/app-icon.svg">
   <link rel="icon" href="favicon.ico" sizes="16x16 32x32 48x48">
-  <link rel="stylesheet" href="styles.css?v=7">
+  <link rel="stylesheet" href="styles.css?v=10">
   <script>document.documentElement.classList.add("js");</script>
-  <script src="site.js?v=3" defer></script>
+  <script src="site.js?v=4" defer></script>
 </head>
 <body>
   <!-- Icons: simple stroke shapes drawn for this page. -->
@@ -61,6 +61,7 @@
           <li><a href="#perf">Performance</a></li>
           <li><a href="#cli">CLI</a></li>
           <li><a href="#privacy">Privacy</a></li>
+          <li><a href="/docs/">Documentation</a></li>
           <li><a class="nav-cta" href="#download" data-download-nav>Coming soon</a></li>
         </ul>
       </nav>
@@ -77,8 +78,8 @@
           <h1 id="hero-h">Native speed. <br><span class="grad">Zero baggage.</span></h1>
           <p class="tagline">Rust-powered. GPU-accelerated. <br>Built for developers.</p>
           <p class="lead">
-            From your first API request to complex testing workflows. Send, validate, automate,
-            mock, and measure APIs in one powerful workspace.
+            Send, validate, automate, mock and measure APIs in one native workspace, from a first
+            request to complete test workflows.
           </p>
           <ul class="promises" aria-label="Promises">
             <li><svg aria-hidden="true"><use href="#i-eye-off"/></svg>No telemetry</li>
@@ -92,7 +93,7 @@
               <span>Coming soon</span>
               <small>Download for Windows</small>
             </span>
-            <a class="button ghost" href="#showcase">Take the tour <span aria-hidden="true">→</span></a>
+            <a class="button ghost" href="#showcase">Explore features <span aria-hidden="true">→</span></a>
           </div>
         </div>
         <figure>
@@ -117,22 +118,22 @@
           <p class="eyebrow">One workspace</p>
           <h2 id="showcase-h">Your entire API workflow. One workspace.</h2>
           <p class="sub">
-            Requests, collections, environments, scripts, mocks and load tests sit side by side,
-            saved as plain files on your computer. Every screenshot on this page is the real app,
-            working on a fictional banking API with made-up data.
+            Requests, collections, environments, scripts, mocks and load tests in one application,
+            with your workspace kept as plain files on your computer. All screenshots show the
+            application with a fictional banking API and sample data.
           </p>
         </div>
         <ul class="facts" aria-label="What a workspace holds">
-          <li><svg aria-hidden="true"><use href="#i-folder"/></svg><span><b>Collections and folders</b>Plain files in a folder you choose, easy to review and diff in Git</span></li>
-          <li><svg aria-hidden="true"><use href="#i-key"/></svg><span><b>Auth, set once</b>Basic, Bearer, API key, OAuth2, Digest or AWS Signature V4, inherited by the requests below</span></li>
-          <li><svg aria-hidden="true"><use href="#i-layers"/></svg><span><b>Variables</b><code>{{variables}}</code> per environment, and values extracted from responses</span></li>
-          <li><svg aria-hidden="true"><use href="#i-send"/></svg><span><b>REST and SOAP</b>Any method and body type, and SOAP 1.1 and 1.2 envelopes</span></li>
+          <li><svg aria-hidden="true"><use href="#i-folder"/></svg><span><b>Collections and folders</b>Plain files in a folder you choose, ready to review and diff in Git</span></li>
+          <li><svg aria-hidden="true"><use href="#i-key"/></svg><span><b>Inherited authentication</b>Basic, Bearer, API key, OAuth 2.0 client credentials, Digest or AWS Signature V4, set on a collection or folder and inherited by its requests</span></li>
+          <li><svg aria-hidden="true"><use href="#i-layers"/></svg><span><b>Variables</b><code>{{variables}}</code> per environment, plus values extracted from responses</span></li>
+          <li><svg aria-hidden="true"><use href="#i-send"/></svg><span><b>REST and SOAP</b>Seven standard HTTP methods; JSON, XML, text, form, multipart, binary and GraphQL bodies; SOAP 1.1 and 1.2 envelopes</span></li>
         </ul>
         <figure class="feature-shot">
           <a class="window shot" href="assets/shots/bank-soap.png" data-lightbox data-caption="SOAP 1.1 request with its XML response.">
             <img src="assets/shots/bank-soap.png" width="1984" height="1205" loading="lazy" alt="A SOAP account balance request with its envelope and XML response.">
           </a>
-          <figcaption>REST and SOAP. Together.</figcaption>
+          <figcaption>REST and SOAP in one workspace.</figcaption>
         </figure>
       </div>
     </section>
@@ -144,9 +145,10 @@
           <p class="eyebrow">Environments</p>
           <h2 id="env-h">Switch environments with confidence.</h2>
           <p class="sub">
-            Keep development, test and production values apart, and switch with
-            <kbd>Ctrl</kbd>&nbsp;<kbd>E</kbd>. When a production environment is active, the title
-            bar turns red, Send becomes <b>Send to PROD</b>, and LynxQ asks before anything goes out.
+            Keep development, test and production values separate, and switch with
+            <kbd>Ctrl</kbd>&nbsp;<kbd>E</kbd>. When a production environment is active, the title and
+            status bars turn red, Send reads <b>Send to PROD</b>, and sending requires confirmation
+            by default.
           </p>
         </div>
         <div class="switch" data-gallery>
@@ -156,7 +158,7 @@
             <a class="seg-btn" href="assets/shots/bank-env-prod-confirm.png" data-caption="Confirm before sending to production." data-alt="Production confirmation dialog identifying the destination host."><span class="step">3</span>Confirm</a>
           </div>
           <figure class="stage">
-            <a class="window shot" href="assets/shots/bank-env-menu.png" data-stage-link data-lightbox>
+            <a class="window shot crop-top" href="assets/shots/bank-env-menu.png" data-stage-link data-lightbox>
               <img data-stage src="assets/shots/bank-env-menu.png" width="1984" height="1205" loading="lazy" alt="Environment selector with DEV, UAT and PROD.">
             </a>
             <figcaption data-caption>Switch environments instantly.</figcaption>
@@ -172,9 +174,8 @@
           <p class="eyebrow">Scripts and tests</p>
           <h2 id="testing-h">Automate requests. Validate every response.</h2>
           <p class="sub">
-            Add checks and extract values without writing code, or use JavaScript when you need
-            more. Pass values from one response to the next request, then run a whole collection
-            in order and see every result.
+            Add checks and extract values without code, or write JavaScript for more complex logic.
+            Chain values between requests, run collections in order and review every result.
           </p>
         </div>
         <div class="duo">
@@ -201,10 +202,10 @@
           <p class="eyebrow">Mock Server <span class="tag">Beta</span></p>
           <h2 id="mock-h">Mock an API before it exists.</h2>
           <ul class="ticks">
-            <li>Routes by method and exact path, each with its status, headers and a JSON, XML or text body.</li>
-            <li>Runs inside LynxQ on <code>127.0.0.1</code>: nothing leaves your computer, and it never starts by itself.</li>
-            <li>Point an environment at it, or save any real response as a mock in one click.</li>
-            <li>Add delays, failures and dropped connections to test how your client copes.</li>
+            <li>Matches requests by method and exact path; each mock returns a status, headers and a JSON, XML or text body.</li>
+            <li>Runs inside LynxQ, on <code>127.0.0.1</code> by default, and never starts automatically.</li>
+            <li>Point an environment at it, or save any response as a mock.</li>
+            <li>Inject delays, failures and dropped connections to test client resilience.</li>
           </ul>
         </div>
         <figure class="side-shot">
@@ -224,9 +225,9 @@
           <p class="eyebrow">Performance Lab <span class="tag">Beta</span></p>
           <h2 id="perf-h">From API requests to performance insights.</h2>
           <p class="sub">
-            Turn any saved request into a load test with virtual users, a duration, ramp-up and a
-            rate limit. LynxQ names every host and the most requests it can send before it starts,
-            then reports throughput, P50, P95 and P99 latency, and errors.
+            Run any saved request as a load test with virtual users, duration, ramp-up and an
+            optional rate limit. Before it starts, LynxQ shows every target host and the maximum
+            number of requests; afterwards it reports throughput, P50, P95 and P99 latency, and errors.
           </p>
         </div>
         <div class="duo">
@@ -243,7 +244,7 @@
             <figcaption><b>Measure what matters.</b></figcaption>
           </figure>
         </div>
-        <p class="shot-note">Figures from one run against a local mock on one computer: a demonstration, not a benchmark.</p>
+        <p class="shot-note">Results from a single run against a local mock server. Illustrative only, not a benchmark.</p>
       </div>
     </section>
 
@@ -252,11 +253,11 @@
       <div class="wrap pair">
         <div>
           <p class="eyebrow">Command palette</p>
-          <h2>The keyboard at your fingertips.</h2>
-          <p class="sub">Search anything from the title bar: commands, environments, saved requests, history and tabs, a few letters away.</p>
+          <h2>Every command. One shortcut.</h2>
+          <p class="sub">Search commands, environments, saved requests, history and open tabs from the title bar.</p>
           <p class="keys"><kbd>Ctrl</kbd>&nbsp;<kbd>K</kbd> from anywhere in the app</p>
           <figure>
-            <a class="window shot" href="assets/shots/bank-palette.png" data-lightbox data-caption="Fuzzy search across commands, requests, environments, tabs and history.">
+            <a class="window shot crop crop-palette" href="assets/shots/bank-palette.png" data-lightbox data-caption="Fuzzy search across commands, requests, environments, tabs and history.">
               <img src="assets/shots/bank-palette.png" width="1984" height="1205" loading="lazy" alt="Command palette displaying available actions and keyboard shortcuts.">
             </a>
             <figcaption>Find anything. Execute instantly.</figcaption>
@@ -264,8 +265,8 @@
         </div>
         <div data-gallery>
           <p class="eyebrow">Themes</p>
-          <h2>Slate, Dark or Light.</h2>
-          <p class="sub">Three themes with the same layout, so nothing moves when you switch.</p>
+          <h2>Three themes. One workspace.</h2>
+          <p class="sub">Slate, Dark and Light share one layout, so nothing moves when you switch.</p>
           <div class="seg" role="group" aria-label="Theme">
             <a class="seg-btn is-current" aria-current="true" href="assets/shots/bank-response.png" data-caption="Slate — Default" data-alt="Blue-grey surfaces with blue accents.">Slate</a>
             <a class="seg-btn" href="assets/shots/bank-theme-dark.png" data-caption="Dark" data-alt="Near-black surfaces with blue accents.">Dark</a>
@@ -289,10 +290,10 @@
           <h2 id="cli-h">The same engine, in your pipeline.</h2>
           <p class="cli-name"><span>App</span> <code>lynxq-api.exe</code> <span aria-hidden="true">·</span> <span>Command line</span> <code>lynxq.exe</code></p>
           <ul class="ticks">
-            <li>Runs a workspace's collections read-only, with no window and no account.</li>
-            <li>Secrets come from environment variables, never from the command line.</li>
-            <li>Credentials go only to an origin you name with <code>--allow-origin</code>; PROD needs <code>--allow-prod</code>.</li>
-            <li>Writes JUnit and JSON reports. Exit codes tell CI what happened.</li>
+            <li>Runs collections from a workspace read-only, without a window or an account.</li>
+            <li>Secrets come from environment variables or the app's encrypted vault; values typed on the command line are refused.</li>
+            <li>Credentials are sent only to origins approved with <code>--allow-origin</code>; PROD environments require <code>--allow-prod</code>.</li>
+            <li>Writes JUnit and JSON reports, with exit codes for CI.</li>
           </ul>
         </div>
         <div class="terminal" role="figure" aria-labelledby="term-cap">
@@ -325,14 +326,14 @@ lynxq: PROD is a PROD environment. Pass --allow-prod to run against it.</code></
           <p class="eyebrow">Privacy and security</p>
           <h2 id="privacy-h">Only the requests you send.</h2>
           <ul class="privacy-list">
-            <li><svg aria-hidden="true"><use href="#i-eye-off"/></svg><span><strong>No telemetry, no account.</strong> The app makes no network calls of its own: only your requests and the token requests they need.</span></li>
-            <li><svg aria-hidden="true"><use href="#i-shield"/></svg><span><strong>Credentials go only where you said.</strong> A destination that came with a workspace, an import or a clone is never trusted by itself: LynxQ asks before it sends a credential there.</span></li>
-            <li><svg aria-hidden="true"><use href="#i-lock"/></svg><span><strong>Secrets stay out of your files.</strong> They go to Windows Credential Manager, never into workspace files or History.</span></li>
-            <li><svg aria-hidden="true"><use href="#i-code"/></svg><span><strong>Scripts need your OK.</strong> They're off in every workspace until you trust it, and new or imported scripts wait for review.</span></li>
+            <li><svg aria-hidden="true"><use href="#i-eye-off"/></svg><span><strong>No telemetry, no account.</strong> LynxQ makes no network calls of its own, only the requests you send and the token requests they require.</span></li>
+            <li><svg aria-hidden="true"><use href="#i-shield"/></svg><span><strong>Credential destination control.</strong> A destination from a workspace, an import or a clone is never trusted automatically: LynxQ asks before sending credentials to it.</span></li>
+            <li><svg aria-hidden="true"><use href="#i-lock"/></svg><span><strong>Secrets stay out of your files.</strong> They are sealed in an encrypted vault (AES-256-GCM) on your computer, never in workspace files or History. Only the vault key is kept in Windows Credential Manager.</span></li>
+            <li><svg aria-hidden="true"><use href="#i-code"/></svg><span><strong>Explicit script approval.</strong> Scripts are off in every workspace until you enable them, and new or imported scripts wait for review.</span></li>
           </ul>
         </div>
         <figure class="side-shot">
-          <a class="window shot" href="assets/shots/bank-approve-origin.png" data-lightbox data-caption="Explicit approval before sending credentials to an untrusted origin.">
+          <a class="window shot crop crop-origin" href="assets/shots/bank-approve-origin.png" data-lightbox data-caption="Explicit approval before sending credentials to an untrusted origin.">
             <img src="assets/shots/bank-approve-origin.png" width="1984" height="1205" loading="lazy" alt="Credential destination approval dialog with Cancel, Allow once and Remember options.">
           </a>
           <figcaption>Your credentials. Your approval.</figcaption>
@@ -344,17 +345,17 @@ lynxq: PROD is a PROD environment. Pass --allow-prod to run against it.</code></
     <section id="status" aria-labelledby="status-h">
       <div class="wrap status-grid">
         <div>
-          <p class="eyebrow">Status: alpha</p>
-          <h2 id="status-h">Early, and honest about it.</h2>
-          <p class="sub">The first alpha is tested and works, but has rough edges. Mock Server and Performance Lab are marked Beta.</p>
+          <p class="eyebrow">Release status</p>
+          <h2 id="status-h">The first public alpha.</h2>
+          <p class="sub">LynxQ API v0.1.0 is an early release focused on core API development and testing workflows. Mock Server and Performance Lab are available as beta features.</p>
         </div>
         <div class="panel">
-          <h3>Not built yet</h3>
+          <h3>Current release limitations</h3>
           <ul class="ticks">
             <li>Server-Sent Events, WebSocket and gRPC</li>
-            <li>OAuth2 Authorization Code (PKCE) and NTLM auth</li>
-            <li>Digest auth with Send &amp; Download</li>
-            <li>Command line: running scripts (<code>--allow-scripts</code>), <code>mock</code>, <code>perf</code> and <code>doctor</code></li>
+            <li>OAuth 2.0 Authorization Code (PKCE) and NTLM authentication</li>
+            <li>Digest authentication with Send &amp; Download</li>
+            <li>Command line: script execution (<code>--allow-scripts</code>), <code>mock</code>, <code>perf</code> and <code>doctor</code></li>
           </ul>
         </div>
       </div>
@@ -366,8 +367,8 @@ lynxq: PROD is a PROD environment. Pass --allow-prod to run against it.</code></
         <div class="cta-box">
           <img src="assets/app-icon.svg" alt="" width="88" height="88">
           <p class="pill"><span class="dot" aria-hidden="true"></span>Coming Soon — v0.1.0 Alpha</p>
-          <h2 id="download-h">LynxQ API isn't released yet.</h2>
-          <p class="sub center-block">The first alpha for Windows is being prepared. When it's published, the download will be here.</p>
+          <h2 id="download-h">LynxQ API v0.1.0 Alpha is in preparation.</h2>
+          <p class="sub center-block">The Windows download will be available here when the release is published.</p>
           <p class="actions center">
             <span class="button is-soon" data-download>
               <span>Coming soon</span>
@@ -378,17 +379,17 @@ lynxq: PROD is a PROD environment. Pass --allow-prod to run against it.</code></
             <div>
               <h3>System requirements</h3>
               <ul class="ticks">
-                <li>Windows 11, x64: where it's built and tested</li>
-                <li>Windows 10: not verified yet</li>
-                <li>Planned as a ZIP you unzip and run: no installer, no runtime to add, no administrator rights</li>
+                <li>Windows 11 (x64): built and tested</li>
+                <li>Windows 10: compatibility not yet verified</li>
+                <li>Portable ZIP: no installer, no additional runtime, no administrator rights</li>
               </ul>
             </div>
             <div>
               <h3>Before you run it</h3>
               <ul class="ticks">
                 <!-- Drop this item if release builds get code-signed. -->
-                <li>Builds aren't code-signed yet, so Windows SmartScreen may warn the first time you start <code>lynxq-api.exe</code></li>
-                <li>Alpha software: keep backups of anything important</li>
+                <li>Builds are not yet code-signed; Windows SmartScreen may show a warning the first time you start <code>lynxq-api.exe</code></li>
+                <li>Alpha software: keep backups of important data</li>
               </ul>
             </div>
           </div>
